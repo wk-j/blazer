@@ -16,6 +16,7 @@ Run
 
 ```bash
 dotnet cake -taget=Watch
+```
 
 View
 
