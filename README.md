@@ -3,23 +3,7 @@
 Install template
 
 ```bash
-dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview4-19216-03
-```
-
-Create project
-
-```bash
-dotnet new blazor --output src/MyWeb
-```
-
-Run
-
-```bash
-dotnet cake -taget=Watch
-```
-
-View
-
-```bash
-open http://localhost:5000
+dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview2.20160.5
+dotnet new blazorwasm -o src/MyWeb
+dotnet run --project src/MyWeb/MyWeb.csproj
 ```
