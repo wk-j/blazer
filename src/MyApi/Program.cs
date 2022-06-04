@@ -1,3 +1,6 @@
+using Microsoft.Fast.Components.FluentUI;
+using Microsoft.Fast.Components.FluentUI.DesignTokens;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // builder.Services.AddControllers();
@@ -6,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddHttpClient();
+builder.Services.AddFluentUIComponents();
 
 var app = builder.Build();
 
