@@ -17,12 +17,3 @@ public class WeatherForecastService
         }).ToArray());
     }
 }
-
-public class HelloService
-{
-
-    public string GetName()
-    {
-        return "wk";
-    }
-}

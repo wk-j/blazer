@@ -1,0 +1,39 @@
+@page "/save"
+
+@using BlazorApp.Data
+@inject HelloService Hello
+
+<button class="btn btn-primary" @onclick="AddName">Click me</button>
+
+
+@if (names == null)
+{
+    <h1>Loadding ...</h1>
+}
+else
+{
+    <h1>All names</h1>
+    @foreach (var item in names)
+    {
+        <h2>@item</h2>
+    }
+}
+
+
+@code {
+    List<string> names = null;
+
+    void AddName()
+    {
+        var now = System.DateTime.Now.ToString();
+        Hello.AddName(now);
+
+        names = Hello.GetNames();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        names = Hello.GetNames();
+    }
+
+}
