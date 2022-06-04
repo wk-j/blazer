@@ -1,14 +1,19 @@
-using BlazorApp.Data;
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// builder.Services.AddControllers();
+// builder.Services.AddEndpointsApiExplorer();
+// builder.Services.AddSwaggerGen();
+
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddSingleton<HelloService>();
 
 var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+// if (app.Environment.IsDevelopment()) {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment()) {
@@ -17,10 +22,11 @@ if (!app.Environment.IsDevelopment()) {
 
 
 app.UseStaticFiles();
-
-app.UseRouting();
-
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+// app.UseHttpsRedirection();
+// app.UseAuthorization();
+// app.MapControllers();
 
 app.Run();

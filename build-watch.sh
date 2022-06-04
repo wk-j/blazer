@@ -1,3 +1,3 @@
 #!/bin/sh
 
-(cd src/BlazorApp; dotnet watch)
+(cd src/MyApi; dotnet watch)
