@@ -1,3 +1,3 @@
 #!/bin/sh
 
-(cd src/MyApi; dotnet watch)
+(cd src/Minimal; dotnet watch)
