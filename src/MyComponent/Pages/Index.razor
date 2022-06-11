@@ -1,0 +1,18 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<ErrorBoundary>
+    <ChildContent>
+        <Counter2 IncreaseAmount="10" />
+    </ChildContent>
+    <ErrorContent>
+        Opp! the counter isn't working right now
+    </ErrorContent>
+</ErrorBoundary>

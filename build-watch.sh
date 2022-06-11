@@ -1,3 +1,3 @@
 #!/bin/sh
 
-(cd src/Minimal; dotnet watch)
+(cd src/MyComponent; dotnet watch)
