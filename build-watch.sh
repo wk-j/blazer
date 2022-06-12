@@ -1,3 +1,3 @@
 #!/bin/sh
 
-(cd src/MyComponent; dotnet watch)
+(cd src/MyAnt; dotnet watch)

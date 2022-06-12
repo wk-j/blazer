@@ -3,13 +3,27 @@
 <p>Current count: @currentCount</p>
 <button class="btn btn-primary" @onclick="IncreaseCount">Click you</button>
 
+
+<label for="x"> Checkbox </label>
+<input id="x" type="checkbox" @onchange="OnChange" value=@isChecked />
+<input type="password" @bind=@password />
+
 @code {
     int currentCount;
+    bool isChecked = true;
+    string password = "";
 
     [Parameter]
     public int IncreaseAmount { set; get; } = 1;
 
-    void IncreaseCount()
+    void OnChange()
+    {
+        isChecked = !isChecked;
+        Console.WriteLine(password);
+    }
+
+
+    void IncreaseCount(MouseEventArgs eventArgs)
     {
         currentCount += IncreaseAmount;
         if (currentCount > 100)
