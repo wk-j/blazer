@@ -1,0 +1,65 @@
+@page "/my-input"
+
+@using MyAnt.Services
+@inject DataService Data
+
+<div>
+    <Input Placeholder="Basic usage" @bind-Value="@txtValue" />
+    <br />
+    <br />
+    <Text>@txtValue</Text>
+</div>
+
+<div>
+    <ErrorBoundary>
+        <ChildContent>
+            <Button Type="@ButtonType.Primary" @onclick=OnClick>My Button</Button>
+        </ChildContent>
+        <ErrorContent>
+            <p class="errorUI">Execute fail</p>
+        </ErrorContent>
+    </ErrorBoundary>
+    <XInput />
+</div>
+
+@if (student == null)
+{
+    <h3>Loading ...</h3>
+}
+else
+{
+    <ul>
+    @foreach (var item in student)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+}
+
+@code {
+    string txtValue { get; set; }
+    List<Student> student = null;
+
+    int count = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        txtValue = "On load";
+        student = new List<Student> { new Student { Name = "wk 2" } };
+    }
+
+    void OnClick()
+    {
+        Console.WriteLine("Hello, world! {0}", txtValue);
+        txtValue = $"New Value {count}";
+
+        student = Data.GetStudents();
+
+        count++;
+
+        if (count > 5)
+        {
+            throw new Exception("Exceed");
+        }
+    }
+}
